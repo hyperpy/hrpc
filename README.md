@@ -1,5 +1,7 @@
 # hrpc
 
+[![Build Status](https://drone.autonomic.zone/api/badges/hyperpy/hrpc/status.svg)](https://drone.autonomic.zone/hyperpy/hrpc)
+
 ## Simple RPC with Protobuf Services
 
 ## Install
