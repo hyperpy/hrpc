@@ -1,13 +1,13 @@
-# hrpc
+# hyper-rpc
 
-[![Build Status](https://drone.autonomic.zone/api/badges/hyperpy/hrpc/status.svg)](https://drone.autonomic.zone/hyperpy/hrpc)
+[![Build Status](https://drone.autonomic.zone/api/badges/hyperpy/hyper-rpc/status.svg)](https://drone.autonomic.zone/hyperpy/hyper-rpc)
 
 ## Simple RPC with Protobuf Services
 
 ## Install
 
 ```sh
-$ pip install hrpc
+$ pip install hyper-rpc
 ```
 
 ## Example
@@ -35,10 +35,10 @@ message HelloReply {
 }
 ```
 
-Then generate the services and stubs with `hrpc`.
+Then generate the services and stubs with `hyper-rpc`.
 
 ```sh
-$ pip install hrpc
+$ pip install hyper-rpc
 $ hrpc greeter.proto
 ```
 
