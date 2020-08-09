@@ -14,7 +14,7 @@ $ pip install hyper-rpc
 
 ## Example
 
-> **TLDR; See the [example](./example) directory**
+> **TLDR; See the [example](https://github.com/hyperpy/hyper-rpc/tree/master/example) directory**
 
 Define an RPC service in a `greeter.proto`.
 
@@ -40,7 +40,6 @@ message HelloReply {
 Then generate the services and stubs with `hyper-rpc`.
 
 ```sh
-$ pip install hyper-rpc
 $ hrpc greeter.proto
 ```
 
