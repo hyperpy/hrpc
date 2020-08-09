@@ -1,13 +1,13 @@
 """Greeter server."""
+from purerpc import Server
 
 from greeter_grpc import GreeterServicer
 from greeter_pb2 import HelloReply, HelloRequest
-from purerpc import Server
 
 
 class Greeter(GreeterServicer):
     async def SayHello(self, message):
-        return HelloReply(message="Hello, " + message.name)
+        return HelloReply(message=f"Hello, {message.name}")
 
     async def SayHelloToMany(self, input_messages):
         async for message in input_messages:

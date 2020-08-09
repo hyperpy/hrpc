@@ -1,7 +1,7 @@
 """Greeter client."""
-
 import anyio
 import purerpc
+
 from greeter_grpc import GreeterStub
 from greeter_pb2 import HelloReply, HelloRequest
 
