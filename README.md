@@ -4,6 +4,8 @@
 
 ## Simple RPC with Protobuf Services
 
+Uses [grpcio_tools](https://pypi.org/project/grpc-tools) and [purerpc](https://github.com/standy66/purerpc) under the hood.
+
 ## Install
 
 ```sh
