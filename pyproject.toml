@@ -4,7 +4,7 @@ build-backend = "poetry.masonry.api"
 
 [tool.poetry]
 name = "hyper-rpc"
-version = "0.0.1a2"
+version = "0.0.1a3"
 description = "Simple RPC with Protobuf Services"
 authors = ["decentral1se <hi@decentral1.se>"]
 maintainers = ["decentral1se <hi@decentral1.se>"]
@@ -36,7 +36,7 @@ multi_line_output = 3
 skip = ".tox"
 
 [tool.poetry.scripts]
-hrpc = "hrpc.hrpc:main"
+hrpc = "hyper_rpc.hrpc:main"
 
 [tool.tox]
 legacy_tox_ini = """
