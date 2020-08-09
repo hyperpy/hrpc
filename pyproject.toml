@@ -43,7 +43,6 @@ hrpc = "hrpc.hrpc:main"
 legacy_tox_ini = """
 [tox]
 envlist =
-    {py36,py37,py38}
     lint
     sort
     format
@@ -52,29 +51,24 @@ skip_missing_interpreters = True
 isolated_build = True
 
 [testenv]
-deps =
-  pytest
-  pytest-cov
-  pytest-mock
-commands = pytest test/ --cov={toxinidir}/hrpc/ --no-cov-on-fail {posargs}
 
 [testenv:lint]
 skipdist = True
 deps = flake8
-commands = flake8 {posargs:--max-line-length 80} hrpc/ test/
+commands = flake8 {posargs:--max-line-length 80} hrpc/
 
 [testenv:sort]
 skipdist = True
 deps = isort
-commands = isort {posargs:-c} hrpc/ test/
+commands = isort {posargs:-c} hrpc/
 
 [testenv:format]
 skipdist = True
 deps = black
-commands = black {posargs:--check} hrpc/ test/
+commands = black {posargs:--check} hrpc/
 
 [testenv:type]
 skipdist = True
 deps = mypy
-commands = mypy {posargs:--ignore-missing-imports} hrpc/ test/
+commands = mypy {posargs:--ignore-missing-imports} hrpc/
 """
