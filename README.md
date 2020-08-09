@@ -44,7 +44,7 @@ $ hrpc greeter.proto
 
 This creates `greeter_gprc.py` (services) and `greeter_pb2.py` (stubs) files.
 
-You can then write a async-ready server.
+You can then write an async-ready server.
 
 ```python
 """Greeter server."""
