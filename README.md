@@ -12,15 +12,19 @@ $ pip install hrpc
 
 ## Example
 
+> **TLDR; See the [example](./example/) directory**
+
 Define an RPC service in a `schema.proto`.
 
 ```protobuf
-message Echo {
+syntax = "proto2";
+
+message EchoMsg {
   required string value = 1;
 }
 
 service Example {
-  rpc Echo (Echo) returns (Echo) {}
+  rpc Echo (EchoMsg) returns (EchoMsg) {}
 }
 ```
 
@@ -33,7 +37,7 @@ $ hrpc schema.proto
 
 This creates `schema_gprc.py` (services) and `schema_pb2.py` (stubs) files.
 
-You can write a simple server and client like so.
+You can then write a async-ready server and client like so.
 
 ```python
 # server.py
@@ -43,7 +47,7 @@ You can write a simple server and client like so.
 # client.py
 ```
 
-Then run them in separate terminals and see the output.
+And run them in separate terminals to see the output.
 
 ```
 $ python server.py # terminal 1
