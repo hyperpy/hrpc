@@ -1,9 +1,0 @@
-syntax = "proto2";
-
-message EchoMsg {
-  required string value = 1;
-}
-
-service Example {
-  rpc Echo (EchoMsg) returns (EchoMsg) {}
-}

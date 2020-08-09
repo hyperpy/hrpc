@@ -12,19 +12,26 @@ $ pip install hrpc
 
 ## Example
 
-> **TLDR; See the [example](./example/) directory**
+> **TLDR; See the [example](./example) directory**
 
-Define an RPC service in a `schema.proto`.
+Define an RPC service in a `greeter.proto`.
 
 ```protobuf
-syntax = "proto2";
+syntax = "proto3";
 
-message EchoMsg {
-  required string value = 1;
+service Greeter {
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+  rpc SayHelloGoodbye (HelloRequest) returns (stream HelloReply) {}
+  rpc SayHelloToMany (stream HelloRequest) returns (stream HelloReply) {}
+  rpc SayHelloToManyAtOnce (stream HelloRequest) returns (HelloReply) {}
 }
 
-service Example {
-  rpc Echo (EchoMsg) returns (EchoMsg) {}
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloReply {
+  string message = 1;
 }
 ```
 
@@ -32,19 +39,65 @@ Then generate the services and stubs with `hrpc`.
 
 ```sh
 $ pip install hrpc
-$ hrpc schema.proto
+$ hrpc greeter.proto
 ```
 
-This creates `schema_gprc.py` (services) and `schema_pb2.py` (stubs) files.
+This creates `greeter_gprc.py` (services) and `greeter_pb2.py` (stubs) files.
 
-You can then write a async-ready server and client like so.
+You can then write a async-ready server.
 
 ```python
-# server.py
+"""Greeter server."""
+
+from greeter_grpc import GreeterServicer
+from greeter_pb2 import HelloReply, HelloRequest
+from purerpc import Server
+
+
+class Greeter(GreeterServicer):
+    async def SayHello(self, message):
+        return HelloReply(message="Hello, " + message.name)
+
+    async def SayHelloToMany(self, input_messages):
+        async for message in input_messages:
+            yield HelloReply(message=f"Hello, {message.name}")
+
+
+if __name__ == "__main__":
+    server = Server(50055)
+    server.add_service(Greeter().service)
+    server.serve(backend="trio")
+
 ```
 
+And a client.
+
 ```python
-# client.py
+"""Greeter client."""
+
+import anyio
+import purerpc
+from greeter_grpc import GreeterStub
+from greeter_pb2 import HelloReply, HelloRequest
+
+
+async def gen():
+    for i in range(5):
+        yield HelloRequest(name=str(i))
+
+
+async def main():
+    async with purerpc.insecure_channel("localhost", 50055) as channel:
+        stub = GreeterStub(channel)
+        reply = await stub.SayHello(HelloRequest(name="World"))
+        print(reply.message)
+
+        async for reply in stub.SayHelloToMany(gen()):
+            print(reply.message)
+
+
+if __name__ == "__main__":
+    anyio.run(main, backend="trio")
 ```
 
 And run them in separate terminals to see the output.
@@ -52,6 +105,17 @@ And run them in separate terminals to see the output.
 ```
 $ python server.py # terminal 1
 $ python client.py # terminal 2
+```
+
+Output:
+
+```
+Hello, World
+Hello, 0
+Hello, 1
+Hello, 2
+Hello, 3
+Hello, 4
 ```
 
 Go forth and [Remote Procedure Call](https://en.wikipedia.org/wiki/Remote_procedure_call).
