@@ -53,3 +53,7 @@ And run them in separate terminals to see the output.
 $ python server.py # terminal 1
 $ python client.py # terminal 2
 ```
+
+Go forth and [Remote Procedure Call](https://en.wikipedia.org/wiki/Remote_procedure_call).
+
+![The person who invented the term RPC](https://upload.wikimedia.org/wikipedia/en/9/90/BruceJayNelson.JPG)
