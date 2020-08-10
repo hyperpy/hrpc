@@ -12,6 +12,13 @@ Uses [grpcio_tools](https://pypi.org/project/grpc-tools) and [purerpc](https://g
 $ pip install hyper-rpc
 ```
 
+## Known Issues
+
+- wontfix: generated service/stub files don't have correct Python 3 import
+  syntax (see [grpc/grpc#9575](https://github.com/grpc/grpc/issues/9575)). One
+  work-around for this is to translate `import foo_pb2 as foo__pb2` -> to `from
+  . import foo_pb2 as foo__pb2` manually. See this [makefile target](https://github.com/hyperpy/hyperspace-rpc/blob/5f1f88106c56ac48d0d1414f63616ba2d8af5f5d/makefile#L3) for some `sed` inspiration.
+
 ## Example
 
 > **TLDR; See the [example](https://github.com/hyperpy/hyper-rpc/tree/master/example) directory**
