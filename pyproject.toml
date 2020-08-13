@@ -10,7 +10,7 @@ authors = ["decentral1se <hi@decentral1.se>"]
 maintainers = ["decentral1se <hi@decentral1.se>"]
 license = "GPLv3"
 readme = "README.md"
-repository = "https://github.com/hyperpy/hyper-rpc"
+repository = "https://github.com/hyperpy/hrpc"
 keywords = []
 
 [tool.poetry.dependencies]
@@ -30,13 +30,13 @@ include = '\.pyi?$'
 
 [tool.isort]
 include_trailing_comma = true
-known_first_party = "hyper_rpc"
+known_first_party = "hrpc"
 line_length = 80
 multi_line_output = 3
 skip = ".tox"
 
 [tool.poetry.scripts]
-hrpc = "hyper_rpc.hrpc:main"
+hrpc = "hrpc:main"
 
 [tool.tox]
 legacy_tox_ini = """
@@ -54,20 +54,20 @@ isolated_build = True
 [testenv:lint]
 skipdist = True
 deps = flake8
-commands = flake8 {posargs:--max-line-length 80} hyper_rpc/
+commands = flake8 {posargs:--max-line-length 80} hrpc/
 
 [testenv:sort]
 skipdist = True
 deps = isort
-commands = isort {posargs:-c} hyper_rpc/
+commands = isort {posargs:-c} hrpc/
 
 [testenv:format]
 skipdist = True
 deps = black
-commands = black {posargs:--check} hyper_rpc/
+commands = black {posargs:--check} hrpc/
 
 [testenv:type]
 skipdist = True
 deps = mypy
-commands = mypy {posargs:--ignore-missing-imports} hyper_rpc/
+commands = mypy {posargs:--ignore-missing-imports} hrpc/
 """

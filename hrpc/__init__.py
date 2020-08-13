@@ -1,4 +1,5 @@
 """Simple RPC with Protobuf Services."""
+
 from argparse import ArgumentParser, FileType
 from shlex import split
 from subprocess import run
@@ -21,4 +22,5 @@ def generate(args):
         "-I. "
         f"{args.protobuf.name}"
     )
+
     run(split(cmd))
