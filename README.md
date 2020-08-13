@@ -14,7 +14,7 @@ $ pip install hyper-rpc
 
 ## Example
 
-> **TLDR; See the [example](https://github.com/hyperpy/hrpc/tree/master/example) directory**
+> **The following example files are contained in the [example](https://github.com/hyperpy/hrpc/tree/master/example) directory**
 
 ## Acknowledgements
 

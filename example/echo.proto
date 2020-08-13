@@ -1,0 +1,9 @@
+syntax = "proto2";
+
+message EchoMsg {
+  required string value = 1;
+}
+
+service Echoer {
+  rpc Echo (EchoMsg) returns (EchoMsg) {}
+}
