@@ -35,8 +35,8 @@ multi_line_output = 3
 skip = ".tox"
 
 [tool.poetry.scripts]
-hrpc = "hrpc.cli:main"
-protoc-gen-hrpc = "hrpc.plugin:main"
+hrpc = "hyper_rpc.cli:main"
+protoc-gen-hrpc = "hyper_rpc.plugin:main"
 
 [tool.tox]
 legacy_tox_ini = """
