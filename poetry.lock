@@ -111,6 +111,14 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 version = "0.8.0"
 
 [[package]]
+category = "main"
+description = "Google Protocol buffers compiler"
+name = "protoc-wheel-0"
+optional = false
+python-versions = "*"
+version = "3.12.0"
+
+[[package]]
 category = "dev"
 description = "Python style guide checker"
 name = "pycodestyle"
@@ -164,7 +172,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "ffbae21a9a84c2349c2ec2127c6c97ff09293fef549f7c99d09c6756ceec097e"
+content-hash = "24fad40b99500eeff6c53d8412c9d108a1f926df210b1d30ab8b4eee5d94e0a8"
 python-versions = "^3.6"
 
 [metadata.files]
@@ -203,6 +211,12 @@ mccabe = [
 pathspec = [
     {file = "pathspec-0.8.0-py2.py3-none-any.whl", hash = "sha256:7d91249d21749788d07a2d0f94147accd8f845507400749ea19c1ec9054a12b0"},
     {file = "pathspec-0.8.0.tar.gz", hash = "sha256:da45173eb3a6f2a5a487efba21f050af2b41948be6ab52b6a1e3ff22bb8b7061"},
+]
+protoc-wheel-0 = [
+    {file = "protoc_wheel_0-3.12.0-py2.py3-none-macosx_10_6_x86_64.whl", hash = "sha256:ac4ce25195d320bc55534cb371f6eee32e6d21207c3e6800bcbd71a8838da33b"},
+    {file = "protoc_wheel_0-3.12.0-py2.py3-none-manylinux1_x86_64.whl", hash = "sha256:e38077b0988788eeeb3885642f438c00e519206ed3178f753de71936a62b3306"},
+    {file = "protoc_wheel_0-3.12.0-py2.py3-none-win32.whl", hash = "sha256:70656625308285ce701bf86456ebc8866658feee33141dc1eddb1aefd0cb9595"},
+    {file = "protoc_wheel_0-3.12.0-py2.py3-none-win_amd64.whl", hash = "sha256:b5ee43ade77ff85023b95b7c48039b8760160d765098ecc57d84a7e5e9bd57c2"},
 ]
 pycodestyle = [
     {file = "pycodestyle-2.6.0-py2.py3-none-any.whl", hash = "sha256:2295e7b2f6b5bd100585ebcb1f616591b652db8a741695b3d8f5d28bdc934367"},
