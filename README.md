@@ -4,6 +4,8 @@
 
 ## Simple RPC with Protobuf Services
 
+> **Work In Progress**
+
 ## Install
 
 Unfortunately, the [hrpc](https://pypi.org/project/hrpc/) package name is already taken on PyPI.
@@ -15,6 +17,8 @@ $ pip install hyper-rpc
 ## Example
 
 > **The following example files are contained in the [example](https://github.com/hyperpy/hrpc/tree/master/example) directory**
+
+TODO.
 
 ## Acknowledgements
 
